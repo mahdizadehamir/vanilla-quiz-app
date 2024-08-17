@@ -4,6 +4,6 @@ export const fetchApi = async (difficulty) => {
     const data = await fetch(apiURL).then((res) => res.json());
     return data.results;
   } catch (error) {
-    console.log(error)
+    throw error;
   }
 };

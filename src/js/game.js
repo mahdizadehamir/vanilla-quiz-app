@@ -1,15 +1,24 @@
 import { fetchApi } from './services.js';
-import { randomMaker } from './utils.js';
+import {  randomMaker } from './utils.js';
 const questionContainer = document.getElementById('question-container');
 const answersContainer = document.getElementById('answers-container');
 const nextButton = document.getElementById('next');
 let questionNumber = 1;
-let dataResults = await fetchApi('easy');
-console.log(dataResults);
-if (dataResults.error) {
-  document.getElementById('container').innerHTML = `<p>${dataResults.error}</p>`;
+let dataResults = async () => {
+  try {
+    const data = await fetchApi('easy');
+    return data;
+  } catch (error) {
+    return { error: error.message };
+  }
+};
+let results = await dataResults();
+console.log(results);
+if (results.error) {
+  document.getElementById('container').innerHTML = `<p>${results.error}</p>`;
 }
-let randomizedAnswers = randomMaker(dataResults);
+let randomizedAnswers = randomMaker(results || []);
+
 nextButton.addEventListener('click', () => {
   questionNumber++;
   showQuestion();
@@ -17,11 +26,11 @@ nextButton.addEventListener('click', () => {
 showQuestion();
 
 function showQuestion() {
-  if (!dataResults?.length) {
+  if (!results?.length) {
     showLoading();
   } else {
     hideLoading();
-    if (questionNumber < dataResults?.length) {
+    if (questionNumber < results?.length) {
       questionContainer.innerHTML = randomizedAnswers[questionNumber].question;
       const answers = [...randomizedAnswers[questionNumber].answers];
       answersContainer.innerHTML = '';
@@ -33,7 +42,8 @@ function showQuestion() {
         answersContainer.appendChild(li);
       });
     } else {
-      document.getElementById('container').innerHTML = '<p>Quiz completed!</p>';
+      document.getElementById('container').innerHTML =
+        '<h3>Quiz completed!</h3> <br> <a class="back" href="/index.html">Back To Home</a>';
     }
   }
 }
