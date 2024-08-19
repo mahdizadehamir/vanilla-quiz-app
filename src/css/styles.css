@@ -1,5 +1,16 @@
+* {
+  padding: 0;
+}
 body {
   background-color: antiquewhite;
+}
+#content {
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  margin-top: 50px;
+  align-items: center;
+  flex-direction: column;
 }
 
 .title {
@@ -10,12 +21,22 @@ body {
 .quiz-setup {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.quiz-setup ul {
+  list-style-type: none;
+  padding: none !important;
 }
 .quiz-setup li {
   list-style-type: none;
   background-color: #fff;
   margin-bottom: 10px;
   border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  padding: 10px;
+  font-size: large;
+  font-weight: 700;
 }
 
 .quiz-setup li a {
@@ -24,8 +45,7 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  padding: 10px;
-
+  /* padding: 10px; */
 }
 .quiz-setup li:hover {
   background-color: rgb(207, 210, 40);
