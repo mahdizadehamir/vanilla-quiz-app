@@ -54,3 +54,17 @@ body {
 li a {
   cursor: pointer;
 }
+
+#alertWindow {
+  display: none;
+  position: absolute;
+  right: 10rem;
+  bottom: 10rem;
+  font-size: larger;
+  font-weight: bolder;
+  width: 300px;
+  text-align: center;
+  background: green;
+  color: white;
+  border-radius: 20px;
+}

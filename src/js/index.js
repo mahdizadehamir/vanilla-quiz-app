@@ -10,5 +10,14 @@ difficultyButtons.forEach((button, key) => {
 
 function difficultySelector(button) {
   difficultyRange = button.dataset.value;
+  showAlertWindow();
   localStorage.setItem('difficultyRange', JSON.stringify(difficultyRange));
+}
+
+function showAlertWindow() {
+  const alertWindow = document.getElementById('alertWindow');
+  alertWindow.style.display = 'block';
+  setTimeout(function () {
+    alertWindow.style.display = 'none';
+  }, 500);
 }
