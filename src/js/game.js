@@ -7,7 +7,8 @@ let score = 0;
 let questionNumber = 1;
 let dataResults = async () => {
   try {
-    const data = await fetchApi('easy');
+    const difficultyRange = JSON.parse(localStorage.getItem('difficultyRange'));
+    const data = await fetchApi(difficultyRange);
     return data;
   } catch (error) {
     return { error: error.message };
