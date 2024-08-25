@@ -9,7 +9,7 @@ let questionNumber = 1;
 let topScorers = JSON.parse(localStorage.getItem('topScorers')) || [];
 let dataResults = async () => {
   try {
-    const difficultyRange = JSON.parse(localStorage.getItem('difficultyRange'));
+    const difficultyRange = JSON.parse(localStorage.getItem('difficultyRange')) || 'medium';
     const data = await fetchApi(difficultyRange);
     return data;
   } catch (error) {
