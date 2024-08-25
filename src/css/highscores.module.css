@@ -2,10 +2,24 @@ h1 {
   text-align: center;
   margin-top: 20px;
 }
-#alert{
+.highScorers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#alert {
   text-align: center;
   margin-top: 20px;
   font-weight: bolder;
   font-size: larger;
   color: red;
+}
+#scorer {
+  text-align: center;
+  background-color: whitesmoke;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }

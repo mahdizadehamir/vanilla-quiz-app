@@ -10,12 +10,16 @@ function show() {
     highScoresContainer.appendChild(alertMessage);
   } else {
     topScorers.map((scorer) => {
-      const nameContainer = document.createElement('p');
-      const scoreContainer = document.createElement('p');
-      nameContainer.innerHTML = scorer.name;
-      scoreContainer.innerHTML = scorer.score;
-      highScoresContainer.appendChild(nameContainer);
-      highScoresContainer.appendChild(scoreContainer);
+      const scorerContainer = document.createElement('div');
+      scorerContainer.innerHTML = `<p>${scorer.name} - ${scorer.score}</p>`;
+      scorerContainer.id = 'scorer';
+      highScoresContainer.appendChild(scorerContainer);
+      //   const nameContainer = document.createElement('p');
+      //   const scoreContainer = document.createElement('span');
+      //   nameContainer.innerHTML = scorer.name;
+      //   scoreContainer.innerHTML = scorer.score;
+      //   highScoresContainer.appendChild(nameContainer);
+      //   highScoresContainer.appendChild(scoreContainer);
     });
   }
 }
