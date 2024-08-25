@@ -1,5 +1,4 @@
 let difficultyRange = 'medium';
-const topScorers = [];
 
 const difficultyButtons = document.querySelectorAll('.difficulty-button');
 difficultyButtons.forEach((button, key) => {

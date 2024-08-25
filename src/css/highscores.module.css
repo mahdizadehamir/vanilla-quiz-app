@@ -2,3 +2,10 @@ h1 {
   text-align: center;
   margin-top: 20px;
 }
+#alert{
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bolder;
+  font-size: larger;
+  color: red;
+}

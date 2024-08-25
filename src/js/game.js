@@ -3,8 +3,10 @@ import { randomMaker } from './utils.js';
 const questionContainer = document.getElementById('question-container');
 const answersContainer = document.getElementById('answers-container');
 const nextButton = document.getElementById('next');
+let userName = sessionStorage.getItem('userName');
 let score = 0;
 let questionNumber = 1;
+let topScorers = JSON.parse(localStorage.getItem('topScorers')) || [];
 let dataResults = async () => {
   try {
     const difficultyRange = JSON.parse(localStorage.getItem('difficultyRange'));
@@ -55,8 +57,18 @@ function showQuestion() {
       document.getElementById(
         'container'
       ).innerHTML = `<h3>Quiz completed!</h3> <br><p>Your Score :${score}</p> <br><a class="back" href="/index.html">Back To Home</a>`;
+      addScore();
     }
   }
+}
+
+function addScore() {
+  const scorer = {
+    name: userName,
+    score: score,
+  };
+  topScorers.push(scorer);
+  localStorage.setItem('topScorers', JSON.stringify(topScorers));
 }
 
 function showLoading() {
