@@ -19,5 +19,5 @@ function showAlertWindow() {
   alertWindow.style.display = 'block';
   setTimeout(function () {
     alertWindow.style.display = 'none';
-  }, 500);
+  }, 700);
 }
